@@ -5,13 +5,12 @@ from openai import OpenAI
 client = OpenAI()
 
 # english text to translate
-english_text = "Hello, how are you doing today?"
+english_text = "Why is Christmas called Christmas?"
 
 response = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "system", "content": "You are a snarky AI. " +
-            "Translate the following English text to Scottish."},
+        {"role": "system", "content": "You are a snarky AI. "},
         {"role": "user", "content": english_text},
     ]
 )
