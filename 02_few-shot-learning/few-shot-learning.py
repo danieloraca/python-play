@@ -1,6 +1,5 @@
 from dotenv import load_dotenv
 load_dotenv()
-import os
 from openai import OpenAI
 
 client = OpenAI()
@@ -15,10 +14,10 @@ prompt = """
 examples = [
     {"input": "Titanic",  "output": "Ship sinks"},
     {"input": "The Matrix",  "output": "Virtual reality"},
-    {"input": "bnlasbls",  "output": "funny movie about nothing. takes place in a forest."}
+    {"input": "bamboo",  "output": "Funny forest movie"}
 ]
 
-movie = "what can you tell me about the bnlasbls movie?"
+movie = "what can you tell me about the bamboo movie?"
 
 response = client.chat.completions.create(
     model="gpt-3.5-turbo",
