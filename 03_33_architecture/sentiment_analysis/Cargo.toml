@@ -1,0 +1,8 @@
+[package]
+name = "sentiment_analysis"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rust-bert = "0.18.0"
+tch = "0.7.2"        # For tensor operations, as rust-bert relies on it
