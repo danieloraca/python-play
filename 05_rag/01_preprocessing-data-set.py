@@ -5,6 +5,7 @@
 from dotenv import load_dotenv
 import os
 import csv
+import pandas as pd
 
 load_dotenv()
 
@@ -32,3 +33,9 @@ with open('mini-llama-articles.csv', mode='r', encoding='utf-8') as file:
 
 print("number of articles: ", idx)
 print("number of chunks: ", len(chunks))
+
+# convert dataset to a pandas dataframe
+df = pd.DataFrame(chunks, columns=['chunk'])
+
+print(df.keys())
+# Index(['chunk'], dtype='object')
