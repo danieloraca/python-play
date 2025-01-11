@@ -35,20 +35,31 @@ def get_embedding(text):
         print(f"Error in getting embedding: {e}")
         return None
 
+# File path for the CSV file
+csv_file_path = 'mini-llama-articles-with_embeddings.csv'
+
+# Check if the CSV file already exists
+if os.path.exists(csv_file_path):
+    print("CSV file already exists. Loading the data.")
+    # Load the existing CSV file
+    df = pd.read_csv(csv_file_path)
+else:
+    print("CSV file does not exist. Generating the CSV file.")
+
 # Read file and create chunks
-chunks = []
-with open('mini-llama-articles.csv', mode='r', encoding='utf-8') as file:
-    csv_reader = csv.reader(file)
-    for idx, row in enumerate(csv_reader):
-        if idx == 0:
-            continue  # Skip header
-        chunks.extend(split_into_chunks(row[1]))
+    chunks = []
+    with open('mini-llama-articles.csv', mode='r', encoding='utf-8') as file:
+        csv_reader = csv.reader(file)
+        for idx, row in enumerate(csv_reader):
+            if idx == 0:
+                continue  # Skip header
+            chunks.extend(split_into_chunks(row[1]))
 
-print("Number of articles: ", idx)
-print("Number of chunks: ", len(chunks))
+    print("Number of articles: ", idx)
+    print("Number of chunks: ", len(chunks))
 
-# Convert dataset to a pandas dataframe
-df = pd.DataFrame(chunks, columns=['chunk'])
+    # Convert dataset to a pandas dataframe
+    df = pd.DataFrame(chunks, columns=['chunk'])
 
 # Get embeddings for each chunk
 embeddings = []
