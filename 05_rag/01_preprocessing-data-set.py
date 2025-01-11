@@ -13,7 +13,6 @@ load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
 
 # Set the API key for OpenAI
-openai.api_key = api_key
 
 # Function to split text into chunks
 def split_into_chunks(text, chunk_size=1024):
