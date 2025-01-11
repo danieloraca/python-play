@@ -1,1 +1,3 @@
 `$ pip install ipywidgets`
+
+`$ pip install scikit-learn`
