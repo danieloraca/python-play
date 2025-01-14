@@ -20,12 +20,14 @@ human_prompt = "What is the plot of the series The Big bang theory?"
 full_prompt = f"{system_prompt}\n\n{human_prompt}"
 
 # Generate the response
-response = client.chat.completions.create(model="gpt-3.5-turbo",
-messages=[
-    {"role": "system", "content": system_prompt},
-    {"role": "user", "content": human_prompt}
-],
-temperature=0)
+response = client.chat.completions.create(
+                                          model="gpt-3.5-turbo",
+                                          messages=[
+                                              {"role": "system", "content": system_prompt},
+                                              {"role": "user", "content": human_prompt}
+                                          ],
+                                          temperature=0
+                                      )
 
 # Print the AI's response
 print(response.choices[0].message.content.strip())
